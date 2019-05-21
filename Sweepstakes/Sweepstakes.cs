@@ -17,7 +17,6 @@ namespace Sweepstakes
         {
             this.name = name;
             contestantList = new Dictionary<double, Contestant>();
-            //Create a new Sweepstakes with a certain name.
         }
         //member methods (CAN DO)
 
@@ -44,6 +43,10 @@ namespace Sweepstakes
         void PrintContestantInfo(Contestant contestant)
         {
             Console.WriteLine($"Info on Contestant #{contestant.registration}:\nName: {contestant.Name}\nEmail: {contestant.Email}");
+        }
+        void SweepstakesOption()
+        {
+
         }
     }
 }

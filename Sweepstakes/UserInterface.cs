@@ -15,7 +15,7 @@ namespace Sweepstakes
         //member methods (CAN DO)
         public static void Welcome()
         {
-            Console.WriteLine("Welcome to Sweepstakes!\n\nAre you registering or managing?");
+            Console.WriteLine("Welcome to Sweepstakes Manager.");
         }
         public static void PromptFirstName()
         {
@@ -28,6 +28,14 @@ namespace Sweepstakes
         public static void PromptEmail()
         {
             Console.WriteLine("Please Enter Contestant Email Address:");
+        }
+        public static void PromptManager()
+        {
+            Console.WriteLine("Will you use Stack or Queue?");
+        }
+        public static void SweepstakesOptions()
+        {
+            Console.WriteLine("Choose 'insert' sweepstakes or 'get' sweepstakes.");
         }
     }
 }
