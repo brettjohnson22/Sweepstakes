@@ -33,9 +33,21 @@ namespace Sweepstakes
         {
             Console.WriteLine("Will you use Stack or Queue?");
         }
+        public static void SweepstakesName()
+        {
+            Console.WriteLine("What will you call the new sweepstakes?");
+        }
         public static void SweepstakesOptions()
         {
-            Console.WriteLine("Choose 'insert' sweepstakes or 'get' sweepstakes.");
+            Console.WriteLine("'Use' this sweepstakes or 'store' sweepstakes and create another?");
+        }
+        public static void UsingSweepstakes(Sweepstakes sweepstakes)
+        {
+            Console.WriteLine($"Using Sweepstakes called {sweepstakes.name}");
+        }
+        public static void RegisterOrDraw()
+        {
+            Console.WriteLine("'Add' contestant to this sweepstakes or 'draw' a winner?");
         }
     }
 }

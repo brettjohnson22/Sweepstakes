@@ -15,13 +15,19 @@ namespace Sweepstakes
         //constructor (SPAWNER)
         public MarketingFirm()
         {
-            UserInterface.Welcome();
-            string managerChoice = ManagerPrompt();
-            manager = ChooseAManager(managerChoice);
-            SweepstakesPrompt();
+
         }
 
         //member methods (CAN DO)
+        public void Initialize()
+        {
+            UserInterface.Welcome();
+            string managerChoice = ManagerPrompt();
+            manager = ChooseAManager(managerChoice);
+            CreateFirstSweepstakes();
+            SweepstakesPrompt();
+            AddOrDraw();
+        }
         public string ManagerPrompt()
         {
             UserInterface.PromptManager();
@@ -40,18 +46,53 @@ namespace Sweepstakes
                     throw new ApplicationException(string.Format("Not a valid selection."));
             }
         }
+        public void CreateFirstSweepstakes()
+        {
+            UserInterface.SweepstakesName();
+            string name = Console.ReadLine();
+            activeSweepstake = new Sweepstakes(name);
+        }
         public void SweepstakesPrompt()
         {
-            UserInterface.SweepstakesOptions();
-            string input = Console.ReadLine();
-            switch (input.ToLower())
+            bool found = false;
+            while (!found)
             {
-                case "insert":
-                    //manager.InsertSweepstakes();
-                    break;
-                case "get":
-                    activeSweepstake = manager.GetSweepstakes();
-                    break;
+                UserInterface.SweepstakesOptions();
+                string input = Console.ReadLine();
+                switch (input.ToLower())
+                {
+                    case "store":
+                        manager.InsertSweepstakes(activeSweepstake);
+                        UserInterface.SweepstakesName();
+                        string name = Console.ReadLine();
+                        activeSweepstake = new Sweepstakes(name);
+                        break;
+                    case "use":
+                        found = true;
+                        break;
+                }
+            }
+        }
+        public void AddOrDraw()
+        {
+            UserInterface.UsingSweepstakes(activeSweepstake);
+            bool keepGoing = true;
+            while (keepGoing)
+            {
+                UserInterface.RegisterOrDraw();
+                string input = Console.ReadLine();
+                switch (input.ToLower())
+                {
+                    case "add":
+                        Contestant temp = new Contestant();
+                        activeSweepstake.RegisterContestant(temp);
+                        break;
+                    case "draw":
+                        Console.WriteLine("The winner is: " + activeSweepstake.PickWinner());
+                        Console.ReadLine();
+                        keepGoing = false;
+                        break;
+                }
             }
         }
     }

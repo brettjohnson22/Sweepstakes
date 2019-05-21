@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class Contestant
+    public class Contestant
     {
         //member variables (HAS A)
         private string firstName;
@@ -27,7 +27,7 @@ namespace Sweepstakes
         //constructor (SPAWNER)
         public Contestant()
         {
-
+            AssignInfo();
         }
 
         //member methods (CAN DO)
