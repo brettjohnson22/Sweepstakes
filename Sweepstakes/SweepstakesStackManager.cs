@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class SweestakesStackManager : ISweepstakesManager
+    class SweepstakesStackManager : ISweepstakesManager
     {
         //member variables (HAS A)
         Stack<Sweepstakes> sweepStack;
 
         //constructor (SPAWNER)
-        public SweestakesStackManager()
+        public SweepstakesStackManager()
         {
             sweepStack = new Stack<Sweepstakes>();
         }

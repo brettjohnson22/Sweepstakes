@@ -19,15 +19,15 @@ namespace Sweepstakes
         }
         public static void PromptFirstName()
         {
-            Console.WriteLine("Please Enter Your First Name:");
+            Console.WriteLine("Please Enter Contestant First Name:");
         }
         public static void PromptLastName()
         {
-            Console.WriteLine("Please Enter Your Last Name:");
+            Console.WriteLine("Please Enter Contestant Last Name:");
         }
         public static void PromptEmail()
         {
-            Console.WriteLine("Please Enter Your Email Address:");
+            Console.WriteLine("Please Enter Contestant Email Address:");
         }
     }
 }

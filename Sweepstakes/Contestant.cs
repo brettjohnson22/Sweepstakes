@@ -12,8 +12,17 @@ namespace Sweepstakes
         private string firstName;
         private string lastName;
         private string email;
-        double registration;
-        //bool winner?
+        public double registration;
+        public bool? winner;
+
+        public string Name
+        {
+            get
+            {
+                return firstName + " " + lastName;
+            }
+        }
+        public string Email { get { return email; } }
 
         //constructor (SPAWNER)
         public Contestant()

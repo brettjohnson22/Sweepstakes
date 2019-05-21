@@ -10,26 +10,40 @@ namespace Sweepstakes
     {
         //member variables (HAS A)
         Dictionary<double, Contestant> contestantList;
+        string name;
 
         //constructor (SPAWNER)
         public Sweepstakes(string name)
         {
+            this.name = name;
+            contestantList = new Dictionary<double, Contestant>();
             //Create a new Sweepstakes with a certain name.
         }
         //member methods (CAN DO)
 
         void RegisterContestant(Contestant contestant)
         {
-            //Once a contestant fills out info, add them to the Dictionary.
+            contestant.registration = contestantList.Count + 1;
+            contestantList.Add(contestant.registration, contestant);
         }
         string PickWinner()
         {
-            //Randomly choose a key from the dictionary, then return its name as a string.
+            string winner = "";
+            Random rand = new Random();
+            double winningNumber = rand.Next(contestantList.Count);
+            foreach(KeyValuePair<double, Contestant> contestant in contestantList)
+            {
+                if (winningNumber == contestant.Key)
+                {
+                    contestant.Value.winner = true;
+                    winner = contestant.Value.Name;
+                }
+            }
+            return winner;
         }
         void PrintContestantInfo(Contestant contestant)
         {
-            //Display the name and email of the winner.
+            Console.WriteLine($"Info on Contestant #{contestant.registration}:\nName: {contestant.Name}\nEmail: {contestant.Email}");
         }
-        
     }
 }
