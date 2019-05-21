@@ -9,22 +9,23 @@ namespace Sweepstakes
     class SweestakesStackManager : ISweepstakesManager
     {
         //member variables (HAS A)
+        Stack<Sweepstakes> sweepStack;
 
         //constructor (SPAWNER)
         public SweestakesStackManager()
         {
-
+            sweepStack = new Stack<Sweepstakes>();
         }
 
         //member methods (CAN DO)
         public Sweepstakes GetSweepstakes()
         {
-            throw new NotImplementedException();
+            Sweepstakes selection = sweepStack.Pop();
+            return selection;
         }
-
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-            throw new NotImplementedException();
+            sweepStack.Push(sweepstakes);
         }
     }
 }

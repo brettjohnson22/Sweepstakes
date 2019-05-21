@@ -9,10 +9,11 @@ namespace Sweepstakes
     class Contestant
     {
         //member variables (HAS A)
-        string firstName;
-        string lastName;
-        string email;
+        private string firstName;
+        private string lastName;
+        private string email;
         double registration;
+        //bool winner?
 
         //constructor (SPAWNER)
         public Contestant()
@@ -21,5 +22,14 @@ namespace Sweepstakes
         }
 
         //member methods (CAN DO)
+        public void AssignInfo()
+        {
+            UserInterface.PromptFirstName();
+            firstName = Console.ReadLine();
+            UserInterface.PromptLastName();
+            lastName = Console.ReadLine();
+            UserInterface.PromptEmail();
+            email = Console.ReadLine();
+        }
     }
 }
