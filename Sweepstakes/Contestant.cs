@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    public class Contestant
+    public class Contestant : IWinnable
     {
         //member variables (HAS A)
         private string firstName;
         private string lastName;
         private string email;
         public double registration;
-        public bool? winner;
+        public bool winner;
 
         public string Name
         {
@@ -33,12 +33,24 @@ namespace Sweepstakes
         //member methods (CAN DO)
         public void AssignInfo()
         {
+            winner = false;
             UserInterface.PromptFirstName();
             firstName = Console.ReadLine();
             UserInterface.PromptLastName();
             lastName = Console.ReadLine();
             UserInterface.PromptEmail();
             email = Console.ReadLine();
+        }
+        public void Update()
+        {
+            if(winner)
+            {
+                Console.WriteLine("Congrats, you won!");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, you didn't win.");
+            }
         }
     }
 }

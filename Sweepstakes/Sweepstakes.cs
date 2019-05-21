@@ -45,5 +45,12 @@ namespace Sweepstakes
             Console.WriteLine($"Info on Contestant #{contestant.registration}:\nName: {contestant.Name}\nEmail: {contestant.Email}");
 
         }
+        public void Notify()
+        {
+            foreach(KeyValuePair<double, Contestant> contestant in contestantList)
+            {
+                contestant.Value.Update();
+            }
+        }
     }
 }
