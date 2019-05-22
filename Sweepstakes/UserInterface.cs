@@ -39,7 +39,7 @@ namespace Sweepstakes
         }
         public static void SweepstakesOptions()
         {
-            Console.WriteLine("'Use' this sweepstakes or 'store' sweepstakes and create another?");
+            Console.WriteLine("'Activate' a sweepstakes or 'store' this sweepstakes and create another?");
         }
         public static void UsingSweepstakes(Sweepstakes sweepstakes)
         {

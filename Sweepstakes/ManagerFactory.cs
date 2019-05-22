@@ -8,9 +8,9 @@ namespace Sweepstakes
 {
     static class ManagerFactory
     {
-        public static ISweepstakesManager ChooseAManager(string item)
+        public static ISweepstakesManager ChooseAManager(string choice)
         {
-            switch (item.ToLower())
+            switch (choice.ToLower())
             {
                 case "stack":
                     return new SweepstakesStackManager();

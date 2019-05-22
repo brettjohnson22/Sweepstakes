@@ -52,7 +52,9 @@ namespace Sweepstakes
                         string name = Console.ReadLine();
                         activeSweepstake = new Sweepstakes(name);
                         break;
-                    case "use":
+                    case "activate":
+                        manager.InsertSweepstakes(activeSweepstake);
+                        activeSweepstake = manager.GetSweepstakes();
                         found = true;
                         break;
                 }
@@ -76,7 +78,7 @@ namespace Sweepstakes
                         string winner = activeSweepstake.PickWinner();
                         Console.WriteLine("The winner is: " + winner);
                         Console.ReadLine();
-
+                        activeSweepstake.Notify(winner);
                         keepGoing = false;
                         break;
                 }

@@ -12,7 +12,7 @@ namespace Sweepstakes
     public class Sweepstakes
     {
         //member variables (HAS A)
-        private readonly Dictionary<double, Contestant> contestantList;
+        private Dictionary<double, Contestant> contestantList;
         public string name;
 
         //constructor (SPAWNER)
@@ -21,8 +21,8 @@ namespace Sweepstakes
             this.name = name;
             contestantList = new Dictionary<double, Contestant>();
         }
-        //member methods (CAN DO)
 
+        //member methods (CAN DO)
         public void RegisterContestant(Contestant contestant)
         {
             contestant.registration = contestantList.Count;
@@ -46,7 +46,6 @@ namespace Sweepstakes
         void PrintContestantInfo(Contestant contestant)
         {
             Console.WriteLine($"Info on Contestant #{contestant.registration}:\nName: {contestant.Name}\nEmail: {contestant.Email}");
-
         }
         public void Notify(string winner)
         {

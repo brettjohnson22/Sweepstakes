@@ -47,7 +47,6 @@ namespace Sweepstakes
             if(won)
             {
                 UserInterface.Congratulations(winner);
-                
             }
             else
             {
