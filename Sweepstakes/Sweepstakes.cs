@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
 
 namespace Sweepstakes
 {
@@ -50,6 +53,25 @@ namespace Sweepstakes
             foreach(KeyValuePair<double, Contestant> contestant in contestantList)
             {
                 contestant.Value.Update();
+            }
+        }
+        public void EmailWinner(Contestant contestant)
+        {
+            MimeMessage message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Sweepstakes Manager", "manager@sweepstakescompany.com"));
+            message.To.Add(new MailboxAddress(contestant.Name, contestant.Email));
+            message.Subject = "Congratulations, you won!";
+            message.Body = new TextPart("plain")
+            {
+                Text = @"Hello, contestant! You won the sweepstakes!"
+            };
+            using (SmtpClient client = new SmtpClient())
+            {
+                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                client.Connect("smtp.sweepstakescompany.com", 587, false);
+                client.Authenticate("manager", "password");
+                client.Send(message);
+                client.Disconnect(true);
             }
         }
     }
