@@ -37,7 +37,7 @@ namespace Sweepstakes
             {
                 if (winningNumber == contestant.Key)
                 {
-                    contestant.Value.winner = true;
+                    contestant.Value.won = true;
                     winner = contestant.Value.Name;
                 }
             }
@@ -48,11 +48,11 @@ namespace Sweepstakes
             Console.WriteLine($"Info on Contestant #{contestant.registration}:\nName: {contestant.Name}\nEmail: {contestant.Email}");
 
         }
-        public void Notify()
+        public void Notify(string winner)
         {
             foreach(KeyValuePair<double, Contestant> contestant in contestantList)
             {
-                contestant.Value.Update();
+                contestant.Value.Update(winner);
             }
         }
         public void EmailWinner(Contestant contestant)

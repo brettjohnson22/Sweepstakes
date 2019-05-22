@@ -73,8 +73,10 @@ namespace Sweepstakes
                         activeSweepstake.RegisterContestant(temporary);
                         break;
                     case "draw":
-                        Console.WriteLine("The winner is: " + activeSweepstake.PickWinner());
+                        string winner = activeSweepstake.PickWinner();
+                        Console.WriteLine("The winner is: " + winner);
                         Console.ReadLine();
+
                         keepGoing = false;
                         break;
                 }

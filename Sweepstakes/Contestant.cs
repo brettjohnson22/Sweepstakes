@@ -14,7 +14,7 @@ namespace Sweepstakes
         private string lastName;
         private string email;
         public double registration;
-        public bool winner;
+        public bool won;
 
         public string Name
         {
@@ -34,9 +34,7 @@ namespace Sweepstakes
         //member methods (CAN DO)
         public void AssignInfo()
         {
-            //SmtpClient s = new SmtpClient();
-            //s.Send(,);
-            winner = false;
+            won = false;
             UserInterface.PromptFirstName();
             firstName = Console.ReadLine();
             UserInterface.PromptLastName();
@@ -44,15 +42,16 @@ namespace Sweepstakes
             UserInterface.PromptEmail();
             email = Console.ReadLine();
         }
-        public void Update()
+        public void Update(string winner)
         {
-            if(winner)
+            if(won)
             {
-                Console.WriteLine("Congrats, you won!");
+                UserInterface.Congratulations(winner);
+                
             }
             else
             {
-                Console.WriteLine("Sorry, you didn't win.");
+                UserInterface.NotAWinner(winner);
             }
         }
     }

@@ -49,5 +49,13 @@ namespace Sweepstakes
         {
             Console.WriteLine("'Add' contestant to this sweepstakes or 'draw' a winner?");
         }
+        public static void Congratulations(string winner)
+        {
+            Console.WriteLine($"Congrats, {winner}! You won the sweepstakes!");
+        }
+        public static void NotAWinner(string winner)
+        {
+            Console.WriteLine($"Unfortunately, {winner} won this sweepstakes. Try again!");
+        }
     }
 }
