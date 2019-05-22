@@ -42,7 +42,7 @@ namespace Sweepstakes
             UserInterface.PromptEmail();
             email = Console.ReadLine();
         }
-        public void Update(string winner)
+        public void NotifyResults(string winner)
         {
             if(won)
             {

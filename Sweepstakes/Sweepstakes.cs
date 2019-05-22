@@ -51,7 +51,7 @@ namespace Sweepstakes
         {
             foreach(KeyValuePair<double, Contestant> contestant in contestantList)
             {
-                contestant.Value.Update(winner);
+                contestant.Value.NotifyResults(winner);
             }
         }
         public void EmailWinner(Contestant contestant)
@@ -62,7 +62,7 @@ namespace Sweepstakes
             message.Subject = "Congratulations, you won!";
             message.Body = new TextPart("plain")
             {
-                Text = @"Hello, contestant! You won the sweepstakes!"
+                Text = $@"Hello, {contestant.Name}! You won the sweepstakes!"
             };
             using (SmtpClient client = new SmtpClient())
             {
