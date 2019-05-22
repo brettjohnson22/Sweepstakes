@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    public class Contestant : IWinnable
+    public class Contestant 
     {
         //member variables (HAS A)
         private string firstName;
@@ -33,6 +34,8 @@ namespace Sweepstakes
         //member methods (CAN DO)
         public void AssignInfo()
         {
+            //SmtpClient s = new SmtpClient();
+            //s.Send(,);
             winner = false;
             UserInterface.PromptFirstName();
             firstName = Console.ReadLine();

@@ -13,17 +13,14 @@ namespace Sweepstakes
         Sweepstakes activeSweepstake;
 
         //constructor (SPAWNER)
-        public MarketingFirm()
+        public MarketingFirm(ISweepstakesManager manager)
         {
-
+            this.manager = manager;
         }
 
         //member methods (CAN DO)
         public void Initialize()
         {
-            UserInterface.Welcome();
-            string managerChoice = ManagerPrompt();
-            manager = ChooseAManager(managerChoice);
             CreateFirstSweepstakes();
             SweepstakesPrompt();
             AddOrDraw();
@@ -33,18 +30,6 @@ namespace Sweepstakes
             UserInterface.PromptManager();
             string input = Console.ReadLine();
             return input;
-        }
-        public ISweepstakesManager ChooseAManager(string item)
-        {
-            switch (item.ToLower())
-            {
-                case "stack":
-                    return new SweepstakesStackManager();
-                case "queue":
-                    return new SweepstakesQueueManager();
-                default:
-                    throw new ApplicationException(string.Format("Not a valid selection."));
-            }
         }
         public void CreateFirstSweepstakes()
         {
@@ -84,8 +69,8 @@ namespace Sweepstakes
                 switch (input.ToLower())
                 {
                     case "add":
-                        Contestant temp = new Contestant();
-                        activeSweepstake.RegisterContestant(temp);
+                        Contestant temporary = new Contestant();
+                        activeSweepstake.RegisterContestant(temporary);
                         break;
                     case "draw":
                         Console.WriteLine("The winner is: " + activeSweepstake.PickWinner());

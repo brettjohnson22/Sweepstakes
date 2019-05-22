@@ -10,7 +10,11 @@ namespace Sweepstakes
     {
         static void Main(string[] args)
         {
-            MarketingFirm mf = new MarketingFirm();
+            UserInterface.Welcome();
+            UserInterface.PromptManager();
+            string managerChoice = Console.ReadLine();
+            ISweepstakesManager manager = ManagerFactory.ChooseAManager(managerChoice);
+            MarketingFirm mf = new MarketingFirm(manager);
             mf.Initialize();
         }
     }

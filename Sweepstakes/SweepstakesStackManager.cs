@@ -9,7 +9,7 @@ namespace Sweepstakes
     class SweepstakesStackManager : ISweepstakesManager
     {
         //member variables (HAS A)
-        Stack<Sweepstakes> sweepStack;
+        private Stack<Sweepstakes> sweepStack;
 
         //constructor (SPAWNER)
         public SweepstakesStackManager()

@@ -9,7 +9,7 @@ namespace Sweepstakes
     public class Sweepstakes
     {
         //member variables (HAS A)
-        private Dictionary<double, Contestant> contestantList;
+        private readonly Dictionary<double, Contestant> contestantList;
         public string name;
 
         //constructor (SPAWNER)
